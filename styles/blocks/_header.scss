@@ -1,4 +1,5 @@
 .header {
+    position: relative;
     padding-top: 20px;
     padding-bottom: 250px;
     background-image: url(../images/header3.jpg);
@@ -6,6 +7,11 @@
     background-repeat: no-repeat;
     background-position: center center;
     color: var(--color-white);
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+    }
 
     &::after {
         content: "";
@@ -15,7 +21,7 @@
         right: 0;
         bottom: 0;
         background-color: #000000;
-        opacity: 0.6;
+        opacity: 0.4;
       }
 
     &__nav-logo {

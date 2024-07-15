@@ -296,6 +296,7 @@ h3 {
 }
 
 .header {
+  position: relative;
   padding-top: 20px;
   padding-bottom: 250px;
   background-image: url(../images/header3.jpg);
@@ -303,6 +304,10 @@ h3 {
   background-repeat: no-repeat;
   background-position: center center;
   color: var(--color-white);
+}
+.header__inner {
+  position: relative;
+  z-index: 1;
 }
 .header::after {
   content: "";
@@ -312,7 +317,7 @@ h3 {
   right: 0;
   bottom: 0;
   background-color: #000000;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 .header__nav-logo {
   display: flex;
