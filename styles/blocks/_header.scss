@@ -1,0 +1,68 @@
+.header {
+    padding-top: 20px;
+    padding-bottom: 250px;
+    background-image: url(../images/header3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: var(--color-white);
+
+    &__nav-logo {
+        @include flexbox;
+        margin-bottom: 200px;
+
+        @include mobile {
+            justify-content: start;
+        }
+    }
+
+    &__logo {
+        min-width: 155px;
+    }
+
+    &__menu {
+        margin-left: auto;
+        margin-right: 17%;
+        font-weight: 600;
+        font-size: 18px;
+
+        @include desktop {
+            margin-right: 5%;
+        }
+
+        &-list {
+            display: flex;
+            align-items: center;
+            column-gap: 55px;
+            
+            @include desktop {
+                column-gap: 20px;
+            }
+        }
+
+        &-link {
+            display: inline-flex;
+            align-items: center;
+            height: 48px;
+            position: relative;
+
+            @include hover {
+                &::after {
+                    width: 100%;
+                }
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 75%;
+                left: 50%;
+                translate: -50%;
+                width: 0;
+                height: 2px;
+                background-color: currentColor;
+                transition-duration: inherit;
+            }
+        }
+    }
+}

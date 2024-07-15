@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/styles.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner container">
+            <div class="header__nav-logo">
+                <a href="#" class="header__logo logo">
+                    <img src="svg/logo.svg" alt="ШипаСу" class="logo__image" loading="lazy">
+                </a>
+                <nav class="header__menu hidden-mobile">
+                    <ul class="header__menu-list">
+                        <li class="header__menu-item">
+                            <a href="#" class="header__menu-link">Главная</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a href="#" class="header__menu-link">О нас</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a href="#" class="header__menu-link">Контакты</a>
+                        </li>
+                    </ul>
+                </nav>
+                <button class="header__button button hidden-mobile" type="button">Забронировать номер</button>
+            </div>
+            <h1 class="header__title title">Добро пожаловать!</h1>
+        </div>
+    </header>
+
+    <main class="content">
+        <section class="rooms container">
+            <h2 class="rooms__title">Номера</h2>
+            <article class="rooms__item">
+                    <img src="images/room1.png" alt="Фото номера" class="rooms__foto">
+                    <div class="rooms__text">
+                        <h3 class="rooms__class">Комфорт</h3>
+                        <p class="rooms__price">От<span class="rooms__number"> 1 500 </span>рублей/сутки.</p>
+                        <p class="rooms__about">Квадратура номера  25 кв.м
+                            Балкон
+                            Душ и все принадлежности 
+                            Кондиционер
+                            На троих, 2 отдельные кровати </p>
+                        <a href="#" class="rooms__details">Подробнее</a>
+                    </div>
+            </article>
+
+            <article class="rooms__item">
+                <img src="images/room1.png" alt="Фото номера" class="rooms__foto">
+                <div class="rooms__text">
+                    <h3 class="rooms__class">Стандарт</h3>
+                    <p class="rooms__price">От<span class="rooms__number"> 8 0000 </span>рублей/сутки.</p>
+                    <p class="rooms__about">Квадратура номера  20 кв.м
+                        Балкон 3 кв.м
+                        Душ и все принадлежности 
+                        на 2 двоих отдельные раздельные кровати </p>
+                    <a href="#" class="rooms__details">Подробнее</a>
+                </div>
+            </article>
+        </section>
+
+        <section class="gallery">
+                <h2 class="gallery__title container">Галерея</h2>
+                <div class="itc-slider container" data-slider="itc-slider">
+                  <div class="itc-slider-wrapper">
+                    <div class="itc-slider-items">
+                        <div class="itc-slider-item"><img class="itc-slider-img" src="images/DSC_0393 1.png" alt=""></div>
+                        <div class="itc-slider-item"><img class="itc-slider-img" src="images/EHK-EH1SRzQ 1.png" alt=""></div>
+                        <div class="itc-slider-item"><img class="itc-slider-img" src="images/room.png" alt=""></div>
+                        <div class="itc-slider-item"><img class="itc-slider-img" src="images/room1.png" alt=""></div>
+                        <div class="itc-slider-item"><img class="itc-slider-img" src="images/room3.png" alt=""></div>
+                    </div>
+                </div>
+            <button class="itc-slider-btn itc-slider-btn-prev"></button>
+            <button class="itc-slider-btn itc-slider-btn-next"></button>
+          </div>
+        </section>
+    </main>
+    
+    <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+.rooms {
+    padding-top: 250px;
+
+
+    &__title {
+    @include flexbox;
+    margin-bottom: 65px;
+
+        &::after {
+            content: '';
+            position: relative;
+            background-color: var(--color-accent);
+            margin-left: 25px;
+            height: 3px;
+            width: 100%;
+        }
+    }
+
+    &__item {
+        display: flex;
+        gap: 90px;
+        margin-bottom: 90px;
+
+        @include tablet {
+            flex-direction: column;
+            gap: 25px;
+        }
+    }
+
+    &__foto {
+        width: 34%;
+        object-fit: cover;
+
+        @include tablet {
+            width: 100%;
+        }
+    }
+
+    
+    &__number {
+        font-family: var(--font-family-title);
+        font-size: 32px;
+    }
+    
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        white-space: pre-line;
+    }
+
+    &__details {
+        font-family: var(--font-family-title);
+        font-size: 16px;
+        text-transform: uppercase;
+
+        &::after {
+            content: url(../svg/arrow.svg);
+            display: inline-block;
+            width: 25px;
+            height: 15px;
+            margin-left: 12px;
+        }
+    }
+}

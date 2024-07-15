@@ -1,0 +1,545 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../fonts/PlayfairDisplay-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/**
+  Нормализация блочной модели
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями
+ */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+}
+
+/**
+  Плавный скролл
+ */
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+svg *[fill] {
+  fill: currentColor;
+}
+
+svg *[stroke] {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+:root {
+  --color-dark: #2A2A2A;
+  --color-background: #FFF8F6;
+  --color-background-alt: #E1963C;
+  --color-white: #FFFFFF;
+  --color-accent: #E1963C;
+  --color-accent-alt: #004E8D;
+  --color-gray: #707070;
+  --color-field-mob: #2D2D2D;
+  --font-family-title: "Playfair Display", serif;
+  --font-family-text: "Raleway", sans-serif;
+  --container-width: 1660px;
+  --container-padding-x: 45px;
+  --transition-duration: 0.2s;
+}
+
+body {
+  font-family: var(--font-family-text);
+  font-weight: 400;
+  font-size: 20px;
+  color: #000000;
+  background-color: var(--color-background);
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-family-title);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(36px, 5.2083333333vw, 100px);
+}
+
+h2 {
+  font-size: clamp(40px, 3.3333333333vw, 64px);
+}
+
+h3 {
+  font-size: clamp(24px, 1.6666666667vw, 32px);
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  padding-inline: 35px;
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: 30px;
+  color: var(--color-white);
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .button:hover {
+    background-color: var(--color-accent-alt);
+  }
+}
+@media (hover: none) {
+  .button:active {
+    background-color: var(--color-accent-alt);
+  }
+}
+
+.header {
+  padding-top: 20px;
+  padding-bottom: 250px;
+  background-image: url(../images/header3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: var(--color-white);
+}
+.header__nav-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 200px;
+}
+@media (max-width: 767px) {
+  .header__nav-logo {
+    justify-content: start;
+  }
+}
+.header__logo {
+  min-width: 155px;
+}
+.header__menu {
+  margin-left: auto;
+  margin-right: 17%;
+  font-weight: 600;
+  font-size: 18px;
+}
+@media (max-width: 1280px) {
+  .header__menu {
+    margin-right: 5%;
+  }
+}
+.header__menu-list {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 55px;
+       column-gap: 55px;
+}
+@media (max-width: 1280px) {
+  .header__menu-list {
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
+}
+.header__menu-link {
+  display: inline-flex;
+  align-items: center;
+  height: 48px;
+  position: relative;
+}
+@media (hover: hover) {
+  .header__menu-link:hover::after {
+    width: 100%;
+  }
+}
+@media (hover: none) {
+  .header__menu-link:active::after {
+    width: 100%;
+  }
+}
+.header__menu-link::after {
+  content: "";
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  translate: -50%;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition-duration: inherit;
+}
+
+.rooms {
+  padding-top: 250px;
+}
+.rooms__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 65px;
+}
+.rooms__title::after {
+  content: "";
+  position: relative;
+  background-color: var(--color-accent);
+  margin-left: 25px;
+  height: 3px;
+  width: 100%;
+}
+.rooms__item {
+  display: flex;
+  gap: 90px;
+  margin-bottom: 90px;
+}
+@media (max-width: 1023px) {
+  .rooms__item {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
+.rooms__foto {
+  width: 34%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (max-width: 1023px) {
+  .rooms__foto {
+    width: 100%;
+  }
+}
+.rooms__number {
+  font-family: var(--font-family-title);
+  font-size: 32px;
+}
+.rooms__text {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  white-space: pre-line;
+}
+.rooms__details {
+  font-family: var(--font-family-title);
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.rooms__details::after {
+  content: url(../svg/arrow.svg);
+  display: inline-block;
+  width: 25px;
+  height: 15px;
+  margin-left: 12px;
+}
+
+/**
+ * ItcSlider
+ * @version 1.0.1
+ * @author https://github.com/itchief
+ * @copyright Alexander Maltsev 2020 - 2023
+ * @license MIT (https://github.com/itchief/ui-components/blob/master/LICENSE)
+ * @tutorial https://itchief.ru/javascript/slider
+ */
+.gallery {
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+.gallery__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 65px;
+  justify-content: start;
+}
+.gallery__title::before {
+  content: "";
+  position: relative;
+  background-color: var(--color-accent);
+  margin-right: 25px;
+  height: 3px;
+  width: 270px;
+}
+
+.itc-slider {
+  position: relative;
+  /* кнопки влево и вправо */
+}
+.itc-slider-wrapper {
+  overflow: hidden;
+  background-color: var(--color-background);
+}
+.itc-slider-items {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+  gap: 20px;
+}
+.itc-slider-transition-none {
+  transition: none;
+}
+.itc-slider-item {
+  flex: 0 0 33%;
+  max-width: 33%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.itc-slider-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.itc-slider-btn {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  text-align: center;
+  background: var(--color-accent);
+  border-radius: 50%;
+  border: none;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .itc-slider-btn:hover {
+    color: #fff;
+    text-decoration: none;
+    background: var(--color-accent-alt);
+    outline: 0;
+  }
+}
+@media (hover: none) {
+  .itc-slider-btn:active {
+    color: #fff;
+    text-decoration: none;
+    background: var(--color-accent-alt);
+    outline: 0;
+  }
+}
+.itc-slider-btn-hide {
+  display: none;
+}
+.itc-slider-btn-prev {
+  left: -20px;
+}
+.itc-slider-btn-next {
+  right: -20px;
+}
+.itc-slider-btn::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: transparent no-repeat center center;
+  background-size: 100% 100%;
+  background-image: url("../svg/arrow-button.svg");
+}
+.itc-slider-btn-next::before {
+  transform: rotate(180deg);
+}/*# sourceMappingURL=styles.css.map */
