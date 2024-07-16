@@ -445,18 +445,9 @@ h3 {
   margin-left: 12px;
 }
 
-/**
- * ItcSlider
- * @version 1.0.1
- * @author https://github.com/itchief
- * @copyright Alexander Maltsev 2020 - 2023
- * @license MIT (https://github.com/itchief/ui-components/blob/master/LICENSE)
- * @tutorial https://itchief.ru/javascript/slider
- */
 .gallery {
-  width: 100%;
   margin: 0 auto;
-  padding-bottom: 50px;
+  padding: 0 20px 50px 20px;
 }
 .gallery__title {
   display: flex;
@@ -498,6 +489,18 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 1023px) {
+  .itc-slider-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+@media (max-width: 767px) {
+  .itc-slider-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 .itc-slider-img {
   width: 100%;
