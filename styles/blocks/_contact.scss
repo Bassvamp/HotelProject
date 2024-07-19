@@ -1,0 +1,81 @@
+.contact {
+    display: flex;
+    margin-top: 230px;
+
+    @include tablet {
+        flex-direction: column-reverse;
+        margin-top: 90px;
+    }
+
+    @include mobile {
+        margin-top: 30px;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+
+        }
+
+        &-foto {
+            min-width: 55%;
+            object-fit: cover;
+                     
+            @include desktop {
+                min-width: 70%;
+            }
+
+            @include tablet {
+                margin-top: 25px;
+                max-width: 90%;
+            }
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        padding: 25px 120px;
+        gap: 35px;
+        
+        @include desktop {
+            gap: 10px;
+            padding: 25px;
+        }
+
+        @include tablet {
+            padding-inline: 0;
+        }
+    }
+
+    &__block {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        background: var(--color-background-alt);
+        padding: 55px 20px 45px 75px;
+        z-index: 1;
+        left: 370px;
+        bottom: 200px;
+         
+        @include desktop {
+            left: 265px;
+            bottom: 180px;
+        }
+
+        @include tablet {
+            width: 80%;
+            margin-left: auto;
+            left: 0;
+            bottom: 200px;
+        }
+
+        @include mobile {
+            bottom: 75px;
+            padding: 15px 10px 15px 20px;
+        }
+    }
+}

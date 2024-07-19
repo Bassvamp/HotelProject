@@ -1,10 +1,25 @@
 .rooms {
-    padding-top: 250px;
+    margin-top: 230px;
+    margin-bottom: 230px;
+
+    @include tablet {
+        margin-top: 75px;
+        margin-bottom: 75px;
+    }
+
+    @include mobile {
+        margin-top: 35px;
+        margin-bottom: 35px;
+    }
 
 
     &__title {
     @include flexbox;
     margin-bottom: 65px;
+
+    @include mobile {
+        margin-bottom: 35px;
+    }
 
         &::after {
             content: '';

@@ -66,7 +66,8 @@
 
         <section class="gallery">
                 <h2 class="gallery__title container">Галерея</h2>
-                <div class="itc-slider container" data-slider="itc-slider">
+                <div class="itc-slider" data-slider="itc-slider">
+                  <button class="itc-slider-btn itc-slider-btn-prev"></button>
                   <div class="itc-slider-wrapper">
                     <div class="itc-slider-items">
                         <div class="itc-slider-item"><img class="itc-slider-img" src="images/DSC_0393 1.png" alt=""></div>
@@ -75,12 +76,73 @@
                         <div class="itc-slider-item"><img class="itc-slider-img" src="images/room1.png" alt=""></div>
                         <div class="itc-slider-item"><img class="itc-slider-img" src="images/room3.png" alt=""></div>
                     </div>
+                    
                 </div>
-            <button class="itc-slider-btn itc-slider-btn-prev"></button>
-            <button class="itc-slider-btn itc-slider-btn-next"></button>
+                
+                <button class="itc-slider-btn itc-slider-btn-next"></button>
           </div>
         </section>
+
+        <section class="contact container">
+            <div class="contact__wrapper">    
+                <img src="images/DSC_0393 1.png" alt="" class="contact__wrapper-foto">
+                <adress class="contact__block">
+                    <div class="contact__block__phone">
+                        <h3 class="contact__block__phone-title title">Елена</h3>
+                        <a href="tel:+79282156371" class="contact__block__phone-link">+7 (928) 215-63-71</a>
+                        <h3 class="contact__block__phone-title title">Наталия</h3>
+                        <a href="tel:+79385319317" class="contact__block__phone-link">+7 (938) 531-93-17</a>
+                        <h3 class="contact__block__phone-title title">Светлана</h3>
+                        <a href="tel:+79283341925" class="contact__block__phone-link">+7 (928) 334-19-25</a>
+                        <h3 class="contact__block__adress-title title">Адрес</h3>
+                        <p class="contact__block__adress-text">Краснодарский край, Новомихайловский район, с.Пляхо, улица Яблоневый сад, дом 31.</p>
+                    </div>
+                </adress>
+            </div>    
+                <div class="contact__content">
+                    <h2 class="contact__content-title title">Свяжитесь с нами</h2>
+                    <p class="contact__content-text">Мы с радостью ответим на все ваши вопросы и поможем в выборе.</p>
+                </div>
+        </section>
     </main>
+
+    <footer class="footer">
+        <div class="footer__inner container">
+            <div class="footer__nav-logo">
+                <a href="#" class="footer__logo logo">
+                    <img src="svg/logo.svg" alt="ШипаСу" class="footer__logo__image" loading="lazy">
+                </a>
+                <nav class="footer__menu">
+                    <ul class="footer__menu-list">
+                        <li class="footer__menu-item">
+                            <a href="#" class="footer__menu-link">Главная</a>
+                        </li>
+                        <li class="footer__menu-item">
+                            <a href="#" class="footer__menu-link">О нас</a>
+                        </li>
+                        <li class="footer__menu-item">
+                            <a href="#" class="footer__menu-link">Контакты</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <address class="footer__adress">
+                <h4 class="footer__adress-title title">Адрес</h4>
+                <p class="footer__adress-text">Краснодарский край, Новомихайловский район, с.Пляхо, улица Яблоневый сад, дом 31.</p>
+            </address>
+            <address class="footer__contacts">
+                <h4 class="footer__contacts__phone-title title">Контакты</h4>
+                <a href="tel:+79282156371" class="footer__contacts__phone-link">+7 (928) 215-63-71</a>
+                <a href="tel:+79385319317" class="footer__contacts__phone-link">+7 (938) 531-93-17</a>
+                <a href="tel:+79283341925" class="footer__contacts__phone-link">+7 (928) 334-19-25</a>
+            </address>
+            <div class="footer__socials">
+                <h4 class="footer__socials-title title">Подпишись на нас</h4>
+                <a href="https://vk.com/club122646280" class="footer__socials-link">vk.com/club122646280</a>
+            </div>
+
+        </div>        
+    </footer>
     
     <script src="script.js" defer></script>
 </body>
